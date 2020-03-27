@@ -11,3 +11,49 @@
 .logo {
   height: 65px;
 }
+
+.accSpan {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  border-radius: 5px;
+  flex-direction: column;
+  transition: all 0.3s ease-out;
+}
+
+.accSpan:hover {
+  background-color: #e6ecfc;
+  /* margin-top: 70px; */
+  transform: translateY(30px);
+  height: 120px;
+}
+
+.proSpan {
+  display: flex;
+  align-items: center;
+  width: 120px;
+  justify-content: center;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+}
+
+.name {
+  margin-left: 15px;
+}
+
+.dropdown {
+  /* position: absolute; */
+  display: none;
+  /* padding: 15px;
+  transform: translateY(90%) translateX(-25px); */
+  background: gainsboro;
+}
+
+.accSpan:hover .dropdown {
+  display: block;
+}

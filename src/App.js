@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav profile={profile} />
+      <Nav profile={profile} setProfile={setProfile} />
       <Switch>
         <Route exact path="/">
           <Redirect to="/login" />
