@@ -4,9 +4,10 @@ import AddOrder from "../AddOrder/AddOrder";
 import useOrders from "../../hooks/useOrders";
 import { ReactComponent as ForwardIcon } from "../../assets/icons/forward.svg";
 import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
+import { ReactComponent as TrashIcon } from "../../assets/icons/trash.svg";
 import styles from "./Dashboard.module.css";
 
-const OrderTable = ({ orders, pageData }) => {
+const OrderTable = ({ orders, pageData, removeOrder }) => {
   const base = pageData.limit * pageData.page;
 
   const orderItems = orders.map((o, i) => {
@@ -18,6 +19,7 @@ const OrderTable = ({ orders, pageData }) => {
         <span className={styles.emailSpan}>{o.customer_email}</span>
         <span className={styles.productSpan}>{o.product}</span>
         <span className={styles.qtySpan}>{o.quantity}</span>
+        <span className={styles.delSpan}><TrashIcon className={styles.trashIcon} onClick={() => removeOrder(o.id)} /></span>
       </div>
     );
   });
@@ -31,6 +33,7 @@ const OrderTable = ({ orders, pageData }) => {
         <span className={styles.emailSpan}>Email</span>
         <span className={styles.productSpan}>Product</span>
         <span className={styles.qtySpan}>Quantity</span>
+        <span className={styles.delSpan}></span>
       </div>
       <div className={styles.tableBody}>{orderItems}</div>
     </div>
@@ -41,7 +44,7 @@ const Dashboard = ({ profile }) => {
   const [pageData, setPageData] = useState({ limit: 15, page: 0 });
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const { orders, total, addOrder } = useOrders(pageData);
+  const { orders, total, addOrder, removeOrder } = useOrders(pageData);
 
   if (!profile) return <Redirect to="/login" />;
 
@@ -89,7 +92,7 @@ const Dashboard = ({ profile }) => {
           </select>
         </span>
       </div>
-      <OrderTable orders={orders} pageData={pageData} />
+      <OrderTable orders={orders} pageData={pageData} removeOrder={removeOrder} />
       <div className={styles.bar}>
         <button
           type="button"

@@ -61,7 +61,7 @@
 }
 
 .nameSpan {
-  width: 20%
+  width: 18%
 }
 
 .productSpan {
@@ -69,12 +69,29 @@
 }
 
 .qtySpan {
-  width: 10%;
+  width: 8%;
 }
 
 .indexSpan {
   width: 5%;
   text-align: left;
+}
+
+.delSpan {
+  width: 4%;
+  text-align: right;
+}
+
+.trashIcon {
+  color: maroon;
+  cursor: pointer;
+  transform: scale(0.7);
+  transition: all 0.3s ease-out;
+}
+
+.trashIcon:hover {
+  color: red;
+  transform: scale(1);
 }
 
 .idSpan, .nameSpan, .emailSpan, .productSpan, .qtySpan {
