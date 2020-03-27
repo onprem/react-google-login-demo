@@ -19,7 +19,7 @@ function App() {
           <Login profile={profile} setProfile={setProfile} />
         </Route>
         <Route exact path="/dashboard">
-          <Dashboard profile={profile} setProfile={setProfile} />
+          <Dashboard profile={profile} />
         </Route>
       </Switch>
     </div>

@@ -18,7 +18,7 @@ const Nav = ({ profile, setProfile }) => {
         {profile && (
           <>
             <span className={styles.proSpan}>
-              <img src={profile.imageUrl} alt="user avatar" className={styles.avatar} />
+              <img src={profile.imageUrl} alt="avatar" className={styles.avatar} />
               <p className={styles.name}>{profile.givenName}</p>
             </span>
             <span className={styles.dropdown}>

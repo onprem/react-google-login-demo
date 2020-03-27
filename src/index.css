@@ -15,5 +15,13 @@ code {
 :root {
   --bgColor: white;
   --fgColor: #282c34;
+  --brandColor: #2f5eab;
   --navHeight: 100px;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
 }
