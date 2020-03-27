@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 60px;
+  height: var(--navHeight);
+  width: 100%;
+}
+
+.logo {
+  height: 65px;
+}

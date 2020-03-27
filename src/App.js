@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Switch, Route, Redirect } from 'react-router-dom';
+import Nav from './components/Nav/Nav';
 import Login from './components/Login/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import "./App.css";
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <div className="App">
+      <Nav profile={profile} />
       <Switch>
         <Route exact path="/">
           <Redirect to="/login" />

@@ -1,0 +1,57 @@
+.loginSection {
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - var(--navHeight));
+  box-sizing: border-box;
+  background: url(../../assets/loginbg.webp);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+}
+.left {
+  width: 55%;
+  height: calc(100vh - var(--navHeight));
+  display: flex;
+  justify-content: center;
+}
+.motto {
+  font-size: 3em;
+  margin: 80px 100px;
+}
+.right {
+  width: 45%;
+  height: calc(100vh - var(--navHeight));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../../assets/krita.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+}
+.loginDiv {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 100px 50px;
+  /* background: #e6ecfc; */
+  /* background: #f2f2f2; */
+  background: white;
+  /* box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); */
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.greeting {
+  font-size: 1.8em;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.sub {
+  width: 100%;
+  margin-bottom: 45px;
+}

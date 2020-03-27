@@ -13,6 +13,7 @@ code {
 }
 
 :root {
-  --bgColor: #282c34;
-  --fgColor: #ffffff;
+  --bgColor: white;
+  --fgColor: #282c34;
+  --navHeight: 100px;
 }
