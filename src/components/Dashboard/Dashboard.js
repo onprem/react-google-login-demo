@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import AddOrder from "../AddOrder/AddOrder";
 import useOrders from "../../hooks/useOrders";
-import { ReactComponent as ForwardIcon } from '../../assets/icons/forward.svg';
-import { ReactComponent as BackIcon } from '../../assets/icons/back.svg';
+import { ReactComponent as ForwardIcon } from "../../assets/icons/forward.svg";
+import { ReactComponent as BackIcon } from "../../assets/icons/back.svg";
 import styles from "./Dashboard.module.css";
 
 const OrderTable = ({ orders, pageData }) => {
@@ -38,7 +39,9 @@ const OrderTable = ({ orders, pageData }) => {
 
 const Dashboard = ({ profile }) => {
   const [pageData, setPageData] = useState({ limit: 15, page: 0 });
-  const { orders, total } = useOrders(pageData);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const { orders, total, addOrder } = useOrders(pageData);
 
   if (!profile) return <Redirect to="/login" />;
 
@@ -46,11 +49,9 @@ const Dashboard = ({ profile }) => {
 
   const handleLimit = e => {
     const { value } = e.target;
-    setPageData(d => {
-      return {
-        ...d,
-        limit: Number(value)
-      };
+    setPageData({
+      page: 0,
+      limit: Number(value)
     });
   };
 
@@ -77,7 +78,9 @@ const Dashboard = ({ profile }) => {
       <div className={styles.bar}>
         <h1 className={styles.orderHeading}>Your Orders:</h1>
         <span>
-          <button type="button" className={styles.addBtn}>+ ADD ORDER</button>
+          <button type="button" className={styles.addBtn} onClick={() => setModalOpen(true)}>
+            + ADD ORDER
+          </button>
           <select className={styles.select} value={pageData.limit} onChange={handleLimit}>
             <option value="15">15</option>
             <option value="25">25</option>
@@ -93,14 +96,19 @@ const Dashboard = ({ profile }) => {
           onClick={goBack}
           disabled={!pageData.page}
           className={styles.paginationBtn}
-        ><BackIcon /></button>
+        >
+          <BackIcon />
+        </button>
         <button
           type="button"
           onClick={goFront}
           disabled={pageData.page === lastPage}
           className={styles.paginationBtn}
-        ><ForwardIcon /></button>
+        >
+          <ForwardIcon />
+        </button>
       </div>
+      <AddOrder isOpen={isModalOpen} setIsOpen={setModalOpen} addOrder={addOrder} />
     </section>
   );
 };
